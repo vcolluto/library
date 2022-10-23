@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.corsojava.library.exceptions.NotEnoughCopiesException;
 import com.corsojava.library.model.Book;
 import com.corsojava.library.model.Borrowing;
 import com.corsojava.library.model.User;
@@ -54,7 +55,12 @@ public class BorrowingController {
 						borrowingService.create(borrowing), HttpStatus.CREATED);
 				}
 					
-		} catch (Exception e) {
+		}
+		catch (NotEnoughCopiesException e) {
+			return new ResponseEntity<Object>(
+				e.getMessage(), HttpStatus.FORBIDDEN);
+			}
+		catch (Exception e) {
 			return new ResponseEntity<Object>(
 				e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}

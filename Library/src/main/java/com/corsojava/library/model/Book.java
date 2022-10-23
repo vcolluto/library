@@ -42,11 +42,11 @@ public class Book {
 	private int AvailableCopies;
 	
 	@ManyToMany	
-	@JsonBackReference(value = "authorsList")	
+	@JsonBackReference(value = "authorsList")
 	private List<Author> authors;
 	
 	@OneToMany(mappedBy = "book")	//nome del corrispondente attributo su Borrowing
-	@JsonBackReference(value = "borrowingList")	
+	@JsonBackReference(value = "borrowingList")		
 	private List<Borrowing> borrowings;
 
 	public int getId() {

@@ -12,6 +12,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.PastOrPresent;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -30,7 +31,8 @@ public class Author {
 	private String Nationality;
 	
 	@ManyToMany(mappedBy = "authors")		//nome della lista su Book
-	@JsonManagedReference
+	@JsonManagedReference	
+	@JsonIgnore		//non includo in deserializzazione
 	private List<Book> books;
 
 	public int getId() {

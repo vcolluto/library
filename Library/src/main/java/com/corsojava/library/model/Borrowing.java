@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
@@ -29,11 +30,13 @@ public class Borrowing {
 	
 	@ManyToOne
 	@JsonManagedReference(value = "book")
+	@JsonIgnore		//non includo in deserializzazione (quando chiamo l'API per creare il prestito invio solo idutente e idlibro nel JSON di richiesta)
 	private Book book;
 	
 	
 	@ManyToOne 
 	@JsonManagedReference(value = "user")
+	@JsonIgnore 	//non includo in deserializzazione //non includo in deserializzazione (quando chiamo l'API per creare il prestito invio solo idutente e idlibro nel JSON di richiesta)
 	private User user;
 	
 
