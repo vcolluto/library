@@ -41,12 +41,10 @@ public class Book {
 	@PositiveOrZero(message = "Available copies must be positive or zero")
 	private int AvailableCopies;
 	
-	@ManyToMany	
-	@JsonBackReference(value = "authorsList")	
+	@ManyToMany			
 	private List<Author> authors;
 	
 	@OneToMany(mappedBy = "book")	//nome del corrispondente attributo su Borrowing
-	@JsonBackReference(value = "borrowingList")	
 	private List<Borrowing> borrowings;
 
 	public int getId() {

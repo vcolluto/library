@@ -32,7 +32,6 @@ public class User {
 	private String phoneNumber;
 	
 	@OneToMany(mappedBy = "user")
-	@JsonBackReference	
 	private List<Borrowing> borrowings;
 
 	public int getId() {

@@ -27,13 +27,11 @@ public class Borrowing {
 	private LocalDate endDate;
 	
 	
-	@ManyToOne
-	@JsonManagedReference(value = "book")
+	@ManyToOne	
 	private Book book;
 	
 	
-	@ManyToOne 
-	@JsonManagedReference(value = "user")
+	@ManyToOne 	
 	private User user;
 	
 

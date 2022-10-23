@@ -23,7 +23,7 @@ public class BorrowingService {
 	@Autowired
 	private BookRepository bookRepository;
 
-	@Transactional
+
 	public Borrowing create(Borrowing borrowing) 
 			throws NotEnoughCopiesException {
 		Book bookToBorrow=borrowing.getBook();
@@ -39,19 +39,7 @@ public class BorrowingService {
 		
 	}
 	
-	@Transactional
-	public Borrowing close(Borrowing borrowing) {
-		Book bookToBorrow=borrowing.getBook();
-		bookToBorrow.setAvailableCopies(
-				bookToBorrow.getAvailableCopies()+1);
-		borrowing.setEndDate(LocalDate.now());
-		bookRepository.save(bookToBorrow);
-		return borrowingRepository.save(borrowing);
-	}
 	
-	public Optional<Borrowing> findById(int id) {
-		return borrowingRepository.findById(id);
-	}
 	
 	public List<Borrowing> list() {
 		return borrowingRepository.findAll();

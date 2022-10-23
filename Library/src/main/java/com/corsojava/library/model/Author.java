@@ -30,7 +30,6 @@ public class Author {
 	private String Nationality;
 	
 	@ManyToMany(mappedBy = "authors")		//nome della lista su Book
-	@JsonManagedReference
 	private List<Book> books;
 
 	public int getId() {
