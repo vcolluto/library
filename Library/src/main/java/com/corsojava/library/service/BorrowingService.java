@@ -2,6 +2,7 @@ package com.corsojava.library.service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -48,6 +49,9 @@ public class BorrowingService {
 		return borrowingRepository.save(borrowing);
 	}
 	
+	public Optional<Borrowing> findById(int id) {
+		return borrowingRepository.findById(id);
+	}
 	
 	public List<Borrowing> list() {
 		return borrowingRepository.findAll();

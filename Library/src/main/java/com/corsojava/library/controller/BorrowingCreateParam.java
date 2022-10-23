@@ -1,6 +1,6 @@
 package com.corsojava.library.controller;
 
-public class BorrowingParam {
+public class BorrowingCreateParam {
 	int userId;
 	int bookId;
 	
